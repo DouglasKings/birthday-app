@@ -80,47 +80,21 @@ git init
 
 notepad .gitignore
 
-# Ignore ONLY the 107MB video (others are under 100MB limit)
-public/videos/special-moments.mp4
-
-# Standard ignores
-node_modules/
-.next/
-.env*
-
-git rm --cached public/videos/special-moments.mp4
-
 git add .
 
-git commit -m "Initial commit: Birthday App (excluded 107MB video)"
+git commit -m "first commit"
 
-git remote add origin https://github.com/DouglasKings/birthdayApp.git
+git branch -M master
 
-git branch -M main
+git remote add origin https://github.com/DouglasKings/birthday-app.git
 
-git push -u origin main
+git push -u origin master
 
-# Compression
-git lfs install
+git status
 
-cd "F:\Douglas Kings\Software Development\GitHub\Birthady App"
+# Deploying on vercel
+npm i -g vercel
 
-git init
+vercel login
 
-git lfs track "public/videos/*.mp4"
-
-notepad .gitignore
-
-node_modules/
-.next/
-.env*
-
-git add .
-
-git commit -m "Initial commit with video tracking via LFS"
-
-git remote add origin https://github.com/DouglasKings/birthdayApp.git
-
-git branch -M main
-
-git push -u origin main
+vercel

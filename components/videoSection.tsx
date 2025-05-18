@@ -7,32 +7,60 @@ import { Video, X, Minimize, Maximize, Play } from 'lucide-react'
 const videoPlaceholders = [
   {
     id: 1,
-    title: "Florence & Damien Wishes",
+    title: "Florence & Damien Wish",
     videoPath: "/videos/1.mp4",
     thumbnail: "/images/thumbnails/1.jpg",
-    description: "Wishes",
+    description: "you health, happiness, and success",
   },
   {
     id: 2,
     title: "A song from loved ones",
     videoPath: "/videos/2.mp4",
     thumbnail: "/images/thumbnails/2.jpg",
-    description: "",
+    description: "wishing you a life filled with love, laughter, and joy",
   },
   {
     id: 3,
-    title: "Birthday Memories",
+    title: "Damien & Dennis's Special Moments",
     videoPath: "/videos/birthday-memories.mp4",
     thumbnail: "/images/thumbnails/birthday-memories.jpg",
-    description: "Highlights from previous celebrations",
+    description: "May your dreams come true",
   },
   {
     id: 4,
-    title: "Damien & Dennis's Special Moments",
+    title: "Damien's Special Moment",
     videoPath: "/videos/special-moments.mp4",
     thumbnail: "/images/thumbnails/special-moments.jpg",
+    description: "A year older, a year bolder!",
+  },
+  {
+    id: 5,
+    title: "Damien's Special Moments",
+    videoPath: "/videos/3.mp4",
+    thumbnail: "/images/thumbnails/3.jpg",
+    description: "Here’s to you and your fabulous journey ahead",
+  },
+  {
+    id: 6,
+    title: "Special Moments",
+    videoPath: "/videos/4.mp4",
+    thumbnail: "/images/thumbnails/4.jpg",
     description: "A collection of Damien & Dennis's best memories",
   },
+  {
+    id: 7,
+    title: "Special Moments",
+    videoPath: "/videos/5.mp4",
+    thumbnail: "/images/thumbnails/5.jpg",
+    description: "Celebrate your day, the world is yours!",
+  },
+  {
+    id: 8,
+    title: "Birthday Memories",
+    videoPath: "/videos/Damiens Album.mp4",
+    thumbnail: "/images/thumbnails/6.jpg",
+    description: "Cheers to another trip around the sun!",
+  }
 ]
 
 export default function VideoSection() {
