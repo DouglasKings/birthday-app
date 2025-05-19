@@ -66,11 +66,11 @@ export default function Home() {
             color="from-blue-500 to-cyan-400"
           />
 
-          <BirthdayCard 
-            name="Chris Dennis" 
-            date="May 23rd" 
-            daysLeft={dennisDaysLeft} 
-            color="from-teal-500 to-green-400" 
+          <BirthdayCard
+            name="Chris Dennis"
+            date="May 23rd"
+            daysLeft={dennisDaysLeft}
+            color="from-teal-500 to-green-400"
           />
         </div>
 
