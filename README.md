@@ -98,3 +98,9 @@ npm i -g vercel
 vercel login
 
 vercel
+
+When you modify files, repeat:
+git add .
+git commit -m "New update"
+git push origin master
+vercel --prod

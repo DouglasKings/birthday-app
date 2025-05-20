@@ -57,7 +57,7 @@ const videoPlaceholders = [
   {
     id: 8,
     title: "Birthday Memories",
-    videoPath: "/videos/Damiens Album.mp4",
+    videoPath: "/videos/Damiens-Album.mp4",
     thumbnail: "/images/thumbnails/6.jpg",
     description: "Cheers to another trip around the sun!",
   }
