@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { useState, useRef, useEffect } from "react"
-import { Video, X, Minimize, Maximize, Play } from 'lucide-react'
+import { useState, useRef, useEffect } from "react";
+import { Video, X, Minimize, Maximize, Play } from "lucide-react";
 
 // Video data with local file paths
 const videoPlaceholders = [
   {
     id: 1,
     title: "Florence & Damien Wish",
-    videoPath: "/videos/1.mp4",
+    videoPath: "/videos/damien&dennis.mp4",
     thumbnail: "/images/thumbnails/1.jpg",
     description: "you health, happiness, and success",
   },
@@ -60,47 +60,50 @@ const videoPlaceholders = [
     videoPath: "/videos/Damiens-Album.mp4",
     thumbnail: "/images/thumbnails/6.jpg",
     description: "Cheers to another trip around the sun!",
-  }
-]
+  },
+];
 
 export default function VideoSection() {
-  const [activeVideo, setActiveVideo] = useState<number | null>(null)
-  const [isMinimized, setIsMinimized] = useState(false)
-  const [videoError, setVideoError] = useState<boolean>(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const [activeVideo, setActiveVideo] = useState<number | null>(null);
+  const [isMinimized, setIsMinimized] = useState(false);
+  const [videoError, setVideoError] = useState<boolean>(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const openFullscreen = (videoId: number) => {
-    setActiveVideo(videoId)
-    setIsMinimized(false)
-    setVideoError(false)
+    setActiveVideo(videoId);
+    setIsMinimized(false);
+    setVideoError(false);
     // Allow scrolling while video is playing
-    document.body.style.overflow = "auto"
-  }
+    document.body.style.overflow = "auto";
+  };
 
   const closeFullscreen = () => {
     if (videoRef.current) {
-      videoRef.current.pause()
+      videoRef.current.pause();
     }
-    setActiveVideo(null)
-    setIsMinimized(false)
-    document.body.style.overflow = "auto"
-  }
+    setActiveVideo(null);
+    setIsMinimized(false);
+    document.body.style.overflow = "auto";
+  };
 
   const toggleMinimize = () => {
-    setIsMinimized(!isMinimized)
-  }
+    setIsMinimized(!isMinimized);
+  };
 
   const handleVideoError = () => {
-    setVideoError(true)
-    console.error("Video failed to load")
-  }
+    setVideoError(true);
+    console.error("Video failed to load");
+  };
 
   // Reset video error when changing videos
   useEffect(() => {
-    setVideoError(false)
-  }, [activeVideo])
+    setVideoError(false);
+  }, [activeVideo]);
 
-  const activeVideoData = activeVideo !== null ? videoPlaceholders.find((v) => v.id === activeVideo) : null
+  const activeVideoData =
+    activeVideo !== null
+      ? videoPlaceholders.find((v) => v.id === activeVideo)
+      : null;
 
   return (
     <section className="bg-blue-500 bg-opacity-20 backdrop-blur-lg rounded-xl p-8 shadow-xl">
@@ -122,7 +125,7 @@ export default function VideoSection() {
                 alt={video.title}
                 className="absolute inset-0 w-full h-full object-contain"
                 onError={(e) => {
-                  e.currentTarget.src = "/placeholder.svg?height=200&width=350"
+                  e.currentTarget.src = "/placeholder.svg?height=200&width=350";
                 }}
               />
               <div className="absolute inset-0 flex items-center justify-center">
@@ -132,8 +135,12 @@ export default function VideoSection() {
               </div>
             </div>
             <div className="p-4">
-              <h3 className="text-white font-bold text-lg mb-1">{video.title}</h3>
-              <p className="text-white text-opacity-80 text-sm">{video.description}</p>
+              <h3 className="text-white font-bold text-lg mb-1">
+                {video.title}
+              </h3>
+              <p className="text-white text-opacity-80 text-sm">
+                {video.description}
+              </p>
             </div>
           </div>
         ))}
@@ -147,7 +154,11 @@ export default function VideoSection() {
               : "inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4"
           } modal-animation`}
         >
-          <div className={`relative ${isMinimized ? "w-full" : "w-full max-w-4xl"}`}>
+          <div
+            className={`relative ${
+              isMinimized ? "w-full" : "w-full max-w-4xl"
+            }`}
+          >
             {/* Fixed control bar at the top - always visible */}
             <div className="sticky top-0 left-0 right-0 z-30 flex justify-end p-4 bg-gradient-to-b from-black to-transparent">
               <div className="flex space-x-3">
@@ -156,7 +167,11 @@ export default function VideoSection() {
                   className="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 focus:outline-none shadow-lg"
                   aria-label={isMinimized ? "Maximize video" : "Minimize video"}
                 >
-                  {isMinimized ? <Maximize size={24} /> : <Minimize size={24} />}
+                  {isMinimized ? (
+                    <Maximize size={24} />
+                  ) : (
+                    <Minimize size={24} />
+                  )}
                 </button>
                 <button
                   onClick={closeFullscreen}
@@ -169,12 +184,17 @@ export default function VideoSection() {
             </div>
 
             {/* Video container */}
-            <div className={`${isMinimized ? "" : "aspect-video"} bg-black rounded-lg overflow-hidden mt-2`}>
+            <div
+              className={`${
+                isMinimized ? "" : "aspect-video"
+              } bg-black rounded-lg overflow-hidden mt-2`}
+            >
               {videoError ? (
                 <div className="flex flex-col items-center justify-center h-full p-4 text-white">
                   <p className="text-red-400 mb-2">Video failed to load</p>
                   <p className="text-sm text-center">
-                    Please check that your video files are in the correct location and format.
+                    Please check that your video files are in the correct
+                    location and format.
                   </p>
                 </div>
               ) : (
@@ -195,13 +215,17 @@ export default function VideoSection() {
             {/* Video info */}
             {!isMinimized && (
               <div className="mt-4 p-4 bg-gray-800 rounded-lg">
-                <h3 className="text-xl font-bold text-white">{activeVideoData.title}</h3>
-                <p className="text-white opacity-80">{activeVideoData.description}</p>
+                <h3 className="text-xl font-bold text-white">
+                  {activeVideoData.title}
+                </h3>
+                <p className="text-white opacity-80">
+                  {activeVideoData.description}
+                </p>
               </div>
             )}
           </div>
         </div>
       )}
     </section>
-  )
+  );
 }
